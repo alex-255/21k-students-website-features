@@ -548,13 +548,14 @@
 						} else {
 							document.cookie = document.cookie + salesCards[step].id + ",";
 							console.log("cookies added. " + document.cookie);
+							// page reload
+							location.reload();
 						}
 					};
 				}
 
 				// CART
-				// by clicking on "Remove" - remove from cookies
-				// sales-card-1. classname = sales-card-1
+				// create item in cart
 
 				const cartId = document.getElementById("cart-icon");
 
@@ -610,6 +611,8 @@
 						myCookies = result.toString();
 						console.log(myCookies);
 						document.cookie = myCookies + ",";
+						// page reload
+						location.reload();
 					};
 				}
 
