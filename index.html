@@ -18,11 +18,14 @@
 					<div class="col-12 col-lg-3 logo-area">
 						<img src="./images/navbar-brand_sec-.png">
 					</div>
-					<div class="col-12 col-lg-6 menu-area">
+					<div class="col-12 col-lg-5 menu-area">
 					<a href="#" class="menu-area-link">Home</a>
 					<a href="#section-team" class="menu-area-link">Product</a>
 					<a href="#section-sales" class="menu-area-link">Pricing</a>
 					<a href="#section-subscribe" class="menu-area-link">Contact</a>
+					</div>
+					<div class="col-12 col-lg-1 cart-area">
+						<a href="#" class="cart-icon" id="cart-icon"><i class="bi bi-cart"></i></a>
 					</div>
 					<div class="col-12 col-lg-3 login-area">
 						<a href="#">Login</a>
@@ -172,7 +175,7 @@
 					</div>
 					<div class="row">
 						<div class="col-12 col-md-6 col-xl-3">
-							<div class="sales-card">
+							<div class="sales-card" id="sales-card-1">
 								<div class="sales-card-image">
 									<div class="sales-card-image-label"><h6>Sale</h6></div>
 									<div class="sales-card-image-icons">
@@ -194,7 +197,7 @@
 							</div>
 						</div>
 						<div class="col-12 col-md-6 col-xl-3">
-							<div class="sales-card">
+							<div class="sales-card"  id="sales-card-2">
 								<div class="sales-card-image">
 									<div class="sales-card-image-label"><h6>Sale</h6></div>
 									<div class="sales-card-image-icons">
@@ -216,7 +219,7 @@
 							</div>
 						</div>
 						<div class="col-12 col-md-6 col-xl-3">
-							<div class="sales-card">
+							<div class="sales-card"  id="sales-card-3">
 								<div class="sales-card-image">
 									<div class="sales-card-image-label"><h6>Sale</h6></div>
 									<div class="sales-card-image-icons">
@@ -238,7 +241,7 @@
 							</div>
 						</div>
 						<div class="col-12 col-md-6 col-xl-3">
-							<div class="sales-card">
+							<div class="sales-card"  id="sales-card-4">
 								<div class="sales-card-image">
 									<div class="sales-card-image-label"><h6>Sale</h6></div>
 									<div class="sales-card-image-icons">
@@ -525,6 +528,92 @@
 					document.body.scrollTop = 0; // For Safari
 					document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 				};
+
+				// SALES CARDS. 
+				// Get every card on page 
+				var salesCards = document.getElementsByClassName("sales-card");
+				salesCardsLength = salesCards.length;
+
+				// on click - add to cookies
+				for (let step = 0; step < salesCardsLength; step++) {
+					salesCards[step].onclick  = function(element){
+						
+						console.log(salesCards[step].id);
+
+						let myCookies = document.cookie;
+						console.log(myCookies);
+
+						if (myCookies.includes(salesCards[step].id)) {
+							console.log("already in cookies...");
+						} else {
+							document.cookie = document.cookie + salesCards[step].id + ",";
+							console.log("cookies added. " + document.cookie);
+						}
+					};
+				}
+
+				// CART
+				// by clicking on "Remove" - remove from cookies
+				// sales-card-1. classname = sales-card-1
+
+				const cartId = document.getElementById("cart-icon");
+
+				let myCookies = document.cookie;
+				let myCookiesArray = myCookies.split(",");
+				console.log(myCookiesArray);
+
+				myCookiesArray.forEach((element) => {
+					if (element.includes("sales-card")) {
+						const para = document.createElement("p");
+						const node = document.createTextNode("Product " + element + " " );
+						const link = document.createElement("a");
+						const removeText = document.createTextNode("Remove");
+						link.setAttribute('href', '#');
+						link.appendChild(removeText);
+						para.appendChild(node);
+						para.appendChild(link);
+						para.setAttribute('id', "id-" + element);
+						para.classList.add( "product" );
+						cartId.appendChild(para);
+					}
+				});
+
+				// PRODUCTS. 
+				// Get every card on page 
+				var products = document.getElementsByClassName("product");
+				productsLength = products.length;
+
+				// on click - remove from cookies
+				for (let step = 0; step < productsLength; step++) {
+					products[step].onclick  = function(element){
+						
+						console.log(products[step].id);
+
+						let myCookies = document.cookie;
+						console.log(myCookies);
+						let myCookiesArray = myCookies.split(",");
+						console.log(myCookiesArray);
+
+						myCookiesArray.forEach((element, index) => {
+							if (element.includes("sales-card")) {
+								if (element == products[step].id.substring(3)) {
+									myCookiesArray[index] = "";
+									console.log("element deleted");
+								}
+							}
+						});
+
+						console.log(myCookiesArray);
+
+						const result = myCookiesArray.filter(word => word.length > 0);
+						// array to string
+						myCookies = result.toString();
+						console.log(myCookies);
+						document.cookie = myCookies + ",";
+					};
+				}
+
+				
 
 			});
 		</script>
