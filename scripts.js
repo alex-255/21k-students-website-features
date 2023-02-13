@@ -37,14 +37,14 @@ window.addEventListener("load", (event) => {
 		document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 	};
 
-	// SALES CARDS. 
+	// SALES CARDS.
 	// Get every card on page 
 	var salesCards = document.getElementsByClassName("sales-card");
 	salesCardsLength = salesCards.length;
 
 	// on click - add to cookies
 	for (let step = 0; step < salesCardsLength; step++) {
-		salesCards[step].onclick  = function(element){
+		salesCards[step].onclick  = function(){
 			
 			console.log(salesCards[step].id);
 
@@ -54,10 +54,10 @@ window.addEventListener("load", (event) => {
 			if (myCookies.includes(salesCards[step].id)) {
 				console.log("already in cookies...");
 			} else {
-				document.cookie = document.cookie + salesCards[step].id + ",";
+				document.cookie = document.cookie + "; " + "product-id=" + salesCards[step].id;
 				console.log("cookies added. " + document.cookie);
 				// page reload
-				location.reload();
+				// location.reload();
 			}
 		};
 	}
