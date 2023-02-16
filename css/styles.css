@@ -6,6 +6,11 @@
 	height: 100vh;
 	background-color: #FFFFFF;
 	border: 3px solid #FF6551;
+	overflow: hidden;
+}
+
+#moving-cart .bi-plus-lg {
+	transform: rotate(45deg);
 }
 
 .menu-bar {
