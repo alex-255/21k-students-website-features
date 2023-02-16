@@ -128,16 +128,16 @@ window.addEventListener("load", (event) => {
 	const cartIcon = document.getElementById("cart-icon");
 	$("#cart-icon").click(function() {
 		$("#moving-cart").css("left", "50%");
-		$(".half-opacity-background").show();
+		$(".half-opacity-background").show("slow");
 	});
 
 	$("#moving-cart .bi-plus-lg").click(function(){
-		$("#moving-cart").css("left", "90%");
-		$(".half-opacity-background").hide();
+		$("#moving-cart").css("left", "100%");
+		$(".half-opacity-background").hide("slow");
 	});
 
 	$(".half-opacity-background").click(function(){
-		$("#moving-cart").css("left", "90%");
-		$(".half-opacity-background").hide();
+		$("#moving-cart").css("left", "100%");
+		$(".half-opacity-background").hide("slow");
 	});
 });

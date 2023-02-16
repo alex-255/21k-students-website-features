@@ -1,16 +1,19 @@
 #moving-cart {
 	position: fixed;
 	top: 0;
-	left: 90%;
+	left: 100%;
 	width: 50vw;
 	height: 100vh;
 	background-color: #FFFFFF;
 	border: 3px solid #FF6551;
 	z-index: 5;
+	transition: all 0.5s;
 }
 
-#moving-cart .bi-plus-lg {
+#moving-cart .bi-plus-lg::before {
 	transform: rotate(45deg);
+	color: #E74040;
+	font-size: xx-large;
 }
 
 .half-opacity-background {
