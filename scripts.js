@@ -65,7 +65,7 @@ window.addEventListener("load", (event) => {
 	// CART
 	// create item in cart
 
-	const cartId = document.getElementById("cart-icon");
+	const cartId = document.getElementById("moving-cart");
 
 	let myCookies = document.cookie;
 	let myCookiesArray = myCookies.split(",");

@@ -1,3 +1,13 @@
+#moving-cart {
+	position: fixed;
+	top: 0;
+	left: 90%;
+	width: 50vw;
+	height: 100vh;
+	background-color: #FFFFFF;
+	border: 3px solid #FF6551;
+}
+
 .menu-bar {
 	background-color: #E74040;
 }
