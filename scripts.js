@@ -124,6 +124,9 @@ window.addEventListener("load", (event) => {
 		};
 	}
 
-	
-
+	// Moving cart - while click on icon
+	const cartIcon = document.getElementById("cart-icon");
+	cartIcon.onclick = function() {
+		$("#moving-cart").css("left", "50%");
+	};
 });
