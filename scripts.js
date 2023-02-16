@@ -126,7 +126,11 @@ window.addEventListener("load", (event) => {
 
 	// Moving cart - while click on icon
 	const cartIcon = document.getElementById("cart-icon");
-	cartIcon.onclick = function() {
+	$("#cart-icon").click(function() {
 		$("#moving-cart").css("left", "50%");
-	};
+	});
+
+	$("#moving-cart .bi-plus-lg").click(function(){
+		$("#moving-cart").css("left", "90%");
+	})
 });
