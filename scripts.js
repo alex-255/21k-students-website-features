@@ -128,9 +128,16 @@ window.addEventListener("load", (event) => {
 	const cartIcon = document.getElementById("cart-icon");
 	$("#cart-icon").click(function() {
 		$("#moving-cart").css("left", "50%");
+		$(".half-opacity-background").show();
 	});
 
 	$("#moving-cart .bi-plus-lg").click(function(){
 		$("#moving-cart").css("left", "90%");
-	})
+		$(".half-opacity-background").hide();
+	});
+
+	$(".half-opacity-background").click(function(){
+		$("#moving-cart").css("left", "90%");
+		$(".half-opacity-background").hide();
+	});
 });

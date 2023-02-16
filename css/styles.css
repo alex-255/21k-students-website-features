@@ -6,12 +6,23 @@
 	height: 100vh;
 	background-color: #FFFFFF;
 	border: 3px solid #FF6551;
-	overflow: hidden;
-	z-index: 3;
+	z-index: 5;
 }
 
 #moving-cart .bi-plus-lg {
 	transform: rotate(45deg);
+}
+
+.half-opacity-background {
+	display: none;
+	background-color: black;
+	opacity: 0.3;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: 2;
 }
 
 .menu-bar {
